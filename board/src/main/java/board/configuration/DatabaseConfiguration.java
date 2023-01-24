@@ -43,7 +43,7 @@ public class DatabaseConfiguration {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/sql-*.xml"));
-        sqlSessionFactoryBean.setConfiguration(mybatisConfig());
+        sqlSessionFactoryBean.setConfiguration(mybatisConfig());  //mapUnderscoreToCamelCase 빈 등록
         return sqlSessionFactoryBean.getObject();
     }
 
