@@ -1,4 +1,5 @@
 package board.configuration;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+
 
 
 @Configuration
@@ -43,7 +45,7 @@ public class DatabaseConfiguration {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/sql-*.xml"));
-        sqlSessionFactoryBean.setConfiguration(mybatisConfig());  //mapUnderscoreToCamelCase 빈 등록
+        sqlSessionFactoryBean.setConfiguration(mybatisConfig());
         return sqlSessionFactoryBean.getObject();
     }
 
